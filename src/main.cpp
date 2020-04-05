@@ -36,6 +36,14 @@ void printWin() {
     
 }
 
+void printDeath() {
+    mvprintw(VPAD, HPAD, "Bruh you suck and are dead.");
+    mvprintw(VPAD+1, HPAD, "Melania Trump wins again!");
+    mvprintw(VPAD+2, HPAD, "Richard Nixon brings you back to life just to kill you!");
+    mvprintw(VPAD+3, HPAD, "The Nixon says:");
+    mvprintw(VPAD+5, HPAD+1, "Eat cake!");
+}
+
 int main() {
     initscr();
     noecho();
@@ -100,6 +108,9 @@ int main() {
         } else if (stat == UpdateStairs) {
             stage.floorNum++;
             stage.nextFloor();
+        } else if (stat == UpdateDeath) {
+            printDeath();
+            exit(-1);
         }
 
         stage.printFloor();

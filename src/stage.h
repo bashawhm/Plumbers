@@ -12,7 +12,8 @@
 enum {
     UpdateNone = 0,
     UpdateWin,
-    UpdateStairs
+    UpdateStairs,
+    UpdateDeath
 };
 
 class Stage {

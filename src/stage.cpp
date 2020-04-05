@@ -33,6 +33,9 @@ int Stage::update() {
         State s(0, enemies[i].x, enemies[i].y, NULL, this);
         Move m = s.nextMove();
         enemies[i].moveBy(m.x, m.y);
+        if (enemies[i].x == player.x && enemies[i].y == player.y) {
+            return UpdateDeath;
+        }
     }
 
     return UpdateNone;
