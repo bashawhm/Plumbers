@@ -1,10 +1,10 @@
 CC = clang++
-CFLAGS += -pipe -std=c++17 -march=native -Wall -Wextra -O3
+CFLAGS += -pipe -std=c++17 -march=native -Wall -Wextra -g
 LDFLAGS += -lncurses
 
 TARGET := Plumbers
 
-SRC := main.cpp stage.cpp entity.cpp
+SRC := main.cpp stage.cpp entity.cpp ai.cpp
 
 DEPS := $(addprefix .build/,$(SRC:.cpp=.d))
 OBJS := $(addprefix .build/,$(SRC:.cpp=.o))

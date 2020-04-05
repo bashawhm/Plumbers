@@ -20,10 +20,12 @@ public:
 
     int update();
     void nextFloor();
+    void initFloorEnemies();
     void printFloor();
     void printEntities();
     void printWarning(std::string info);
     void printInfo(std::string info);
+    bool cellEmpty(int x, int y);
 
     int maxX;
     int maxY;
@@ -34,4 +36,5 @@ public:
 
     Entity player;
     Entity toilet;
+    std::vector<Entity> enemies;
 };

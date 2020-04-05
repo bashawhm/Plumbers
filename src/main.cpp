@@ -15,7 +15,9 @@ void printStory() {
     mvprintw(VPAD+3, HPAD, "Nixon is ordering the Plumbers to air drop into the reactor.");
     mvprintw(VPAD+4, HPAD, "The Plumbers are going to fetch the toilet.");
     mvprintw(VPAD+5, HPAD, "Plumber is you.");
-    mvprintw(VPAD+6, HPAD, "Press any key to enter the reactor...");
+    mvprintw(VPAD+6, HPAD, "Now go and fight your way through endless squads of totally, definitely,");
+    mvprintw(VPAD+7, HPAD, "probably souless hazmat suits with absolutely nothing in them.");
+    mvprintw(VPAD+9, HPAD, "Press any key to enter the reactor...");
 
 }
 
@@ -63,25 +65,25 @@ int main() {
             break;
         }
         case KeyW: {
-            if (stage.floor[stage.player.x][stage.player.y-1] != '#') {
+            if (stage.cellEmpty(stage.player.x, stage.player.y-1)) {
                 stage.player.moveBy(0, -1);
             }
             break;           
         }
         case KeyS: {
-            if (stage.floor[stage.player.x][stage.player.y+1] != '#') {
+            if (stage.cellEmpty(stage.player.x, stage.player.y+1)) {
                 stage.player.moveBy(0, 1);
             }
             break;           
         }
         case KeyA: {
-            if (stage.floor[stage.player.x-1][stage.player.y] != '#') {
+            if (stage.cellEmpty(stage.player.x-1, stage.player.y)) {
                 stage.player.moveBy(-1, 0);
             }
             break;           
         }
         case KeyD: {
-            if (stage.floor[stage.player.x+1][stage.player.y] != '#') {
+            if (stage.cellEmpty(stage.player.x+1, stage.player.y)) {
                 stage.player.moveBy(1, 0);
             }
             break;           
