@@ -6,7 +6,8 @@ enum {
     ColorNormal = 0,
     ColorToilet,
     ColorPlayer,
-    ColorEnemy
+    ColorEnemy,
+    ColorStairs
 };
 
 static void initColor() {
@@ -16,4 +17,5 @@ static void initColor() {
     init_pair(ColorToilet, COLOR_YELLOW, COLOR_BLACK);
     init_pair(ColorPlayer, COLOR_CYAN, COLOR_BLACK);
     init_pair(ColorEnemy, COLOR_RED, COLOR_BLACK);
+    init_pair(ColorStairs, COLOR_MAGENTA, COLOR_BLACK);
 }

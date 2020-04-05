@@ -24,6 +24,10 @@ int Stage::update() {
     if (floorNum == MAX_DEPTH && player.x == toilet.x && player.y == toilet.y) {
         return UpdateWin;
     }
+    
+    if (player.x == stairs.x && player.y == stairs.y) {
+        return UpdateStairs;
+    }
 
     for (int i = 0; i < enemies.size(); i++) {
         State s(0, enemies[i].x, enemies[i].y, NULL, this);
@@ -63,6 +67,15 @@ void Stage::nextFloor() {
 
     initFloorEnemies();
 
+    if (floorNum != MAX_DEPTH) {
+        stairs.x = 1 + rand() % (width-2);
+        stairs.y = 1 + rand() % (width-2);
+    } else {
+        stairs.x = 0;
+        stairs.y = 0;
+    }
+
+
     if (floorNum == MAX_DEPTH) {
         toilet.x = 1 + rand() % (width-2);
         toilet.y = 1 + rand() % (width-2);
@@ -82,6 +95,13 @@ void Stage::printEntities() {
     attron(A_BOLD | COLOR_PAIR(ColorPlayer));
     mvprintw(player.y + VPAD, player.x + HPAD, "@");
     attroff(A_BOLD | COLOR_PAIR(ColorPlayer));
+
+    //Print Stairs
+    if (floorNum != MAX_DEPTH) {
+        attron(A_BOLD | COLOR_PAIR(ColorStairs));
+        mvprintw(stairs.y + VPAD, stairs.x + HPAD, "S");
+        attroff(A_BOLD | COLOR_PAIR(ColorStairs));
+    }
 
     //Print Toilet
     if (floorNum == MAX_DEPTH) {

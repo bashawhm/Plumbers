@@ -11,7 +11,8 @@
 
 enum {
     UpdateNone = 0,
-    UpdateWin
+    UpdateWin,
+    UpdateStairs
 };
 
 class Stage {
@@ -36,5 +37,6 @@ public:
 
     Entity player;
     Entity toilet;
+    Entity stairs;
     std::vector<Entity> enemies;
 };

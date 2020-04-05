@@ -97,6 +97,9 @@ int main() {
         int stat = stage.update();
         if (stat == UpdateWin) {
             break;
+        } else if (stat == UpdateStairs) {
+            stage.floorNum++;
+            stage.nextFloor();
         }
 
         stage.printFloor();
